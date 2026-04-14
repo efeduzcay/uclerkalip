@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simple Form Submission Handler -> WhatsApp
+    // Simple Form Submission Handler -> Email redirected to uclerkalip@hotmail.com
     const quoteForm = document.getElementById('quote-form');
     if (quoteForm) {
         quoteForm.addEventListener('submit', (e) => {
@@ -43,15 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('quote-email').value;
             const message = document.getElementById('quote-message').value;
 
-            // Target WhatsApp Number (Country code included, e.g. 905550000000)
-            const phoneNumber = "905423325969";
+            // Email formatting
+            const subject = `Web Sitesi Teklif Talebi - ${name}`;
+            const body = `Merhaba Üçlerkalıp,\n\nWeb sitenizden yeni bir teklif talebi geldi:\n\nAd Soyad: ${name}\nE-Posta: ${email}\n\nMesaj:\n${message}`;
 
-            // Message formatting
-            const text = `Merhaba Üçlerkalıp, web sitenizden yeni bir teklif talebim var.\n\n*Ad Soyad*: ${name}\n*E-Posta*: ${email}\n*Talep/Proje*: ${message}`;
-
-            // Encode for URL and redirect
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(text)}`;
-            window.open(whatsappUrl, '_blank');
+            // Redirect to mailto action
+            const mailtoUrl = `mailto:uclerkalip@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
 
             // Reset form
             quoteForm.reset();

@@ -122,14 +122,15 @@ ul {
 }
 
 .btn-secondary {
-    background-color: transparent;
-    border: 1px solid var(--text-light);
+    background-color: #fff;
+    border: 1px solid #fff;
     color: var(--text-main);
 }
 
 .btn-secondary:hover {
-    background-color: #fff;
-    color: #1E293B;
+    background-color: var(--bg-surface-light);
+    border-color: var(--bg-surface-light);
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -744,16 +745,54 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+    
+    #navbar {
+        top: 0;
+    }
+
     .nav-links {
         display: none; /* In a real project, add hamburger menu */
     }
+    
+    #hero {
+        padding-top: 160px;
+        align-items: flex-start;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
     .hero-stats {
         flex-direction: column;
         gap: 20px;
+        align-items: center;
     }
-    #hero h1 {
-        font-size: 2.8rem;
-    }
+
     .experience-badge {
         bottom: -15px;
         left: 10px;
